@@ -1,14 +1,16 @@
-
 function realtimeClock() {
 
-    var rtClock = new Date();	    
-    var hours = rtClock.getHours();
-    var minutes = rtClock.getMinutes();
-    var seconds = rtClock.getSeconds();
-    var amPm;
+    let rtClock = new Date();	    
+    let hours = rtClock.getHours();
+    let minutes = rtClock.getMinutes();
+    let seconds = rtClock.getSeconds();
+    let amPm;
 
     if (hours > 12){
         amPm = "PM";
+        if (hours == 12){
+            amPm = "AM"
+        }
     } else if (hours < 12){
         amPm = "AM"
     }else{
@@ -17,6 +19,8 @@ function realtimeClock() {
 
     if (hours > 12){
         hours = hours - 12;
+    } else if (hours == 0){
+       hours = 12;
     }
 
     minutes = ("0" + minutes).slice(-2);
